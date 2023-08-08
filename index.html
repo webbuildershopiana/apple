@@ -78,31 +78,35 @@
   <div class="container">
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
     <div class="col">
-     <form id="i5os6" method="post" name="login form" action="http://65.21.199.181:8081/api/v1/wbWebsite/form/formData" target="_self">
-      <div id="ilz8" class="mb-3">
-       <label for="email" id="iacs" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" class="form-control">
+     <form target="_self" id="i63yf">
+      <div class="mb-3" id="ibh0j">
+       <label for="email" id="i6bgp" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" class="form-control">
        <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
        </div>
       </div>
-      <div id="if92j" class="mb-3">
-       <label for="password" id="i7u1s" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="password" class="form-control">
+      <div class="mb-3">
+       <label for="password" id="imr1k" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="password" class="form-control">
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" id="in3p9" class="btn btn-primary">Submit</button>
+      </div><button type="submit" class="btn btn-primary" id="i9zhl">Submit</button>
      </form>
     </div>
    </div>
   </div>
-  <script>var items = document.querySelectorAll('#i5os6');
+  <script>var items = document.querySelectorAll('#i63yf');
           for (var i = 0, len = items.length; i < len; i++) {
             (function(){
-this.addEventListener('click', (e) => {
+function (component) {
+    this.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent the default form submission
         // Access the form element within the component
         const formElement = this.closest('form');
         if (formElement) {
+            // Access the component's attributes
+            const formAttributes = component.getAttributes();
+            console.log('Form attributes:', formAttributes);
             // Perform actions to handle the form data
             // You can access form fields and values here
             // For example:
