@@ -98,26 +98,20 @@
   <script>var items = document.querySelectorAll('#i5os6');
           for (var i = 0, len = items.length; i < len; i++) {
             (function(){
-// Access the form element within the component
-    const formElement = this.querySelector('form');
-    if (formElement) {
-        // Access the submit button element within the form
-        const submitButton = formElement.querySelector('button[type="submit"]');
-        // Add a click event listener to the submit button
-        if (submitButton) {
-            submitButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log('Form submitted:', formElement);
-                // Perform actions to handle the form data
-                // You can access form fields and values here
-                // For example:
-                const formData = new FormData(formElement);
-                console.log('Form data:', formData);
-                // Call your API using the captured API endpoint
-                // Perform any other actions here
-            });
+this.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default form submission
+        // Access the form element within the component
+        const formElement = this.closest('form');
+        if (formElement) {
+            // Perform actions to handle the form data
+            // You can access form fields and values here
+            // For example:
+            const formData = new FormData(formElement);
+            console.log('Form data:', formData);
+            // Call your API using the captured API endpoint
+            // Perform any other actions here
         }
-    }
+    });
 }.bind(items[i]))();
           }</script>
  </body>
