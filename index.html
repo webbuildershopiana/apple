@@ -79,7 +79,7 @@
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
     <div class="col">
      <form id="ipdqw">
-      <div class="mb-3">
+      <div class="mb-3" id="ijgg">
        <label for="exampleInputEmail1" id="ishai" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
        <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
@@ -90,7 +90,7 @@
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" class="btn btn-primary">Submit</button>
+      </div><button type="submit" class="btn btn-primary" id="inh57">Submit</button>
      </form>
     </div>
    </div>
@@ -98,47 +98,44 @@
   <script>var items = document.querySelectorAll('#ipdqw');
           for (var i = 0, len = items.length; i < len; i++) {
             (function(){
-var _this = this;
-
-  this.addEventListener('click', /*#__PURE__*/function () {
-    var _ref = (0,_Users_akshayjangid_bytolabs_workspace_shopiana_admin_web_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)(function* (e) {
-      e.preventDefault(); // Prevent the default form submission
-      // Access the form element within the component
-
-      const formElement = _this.closest('form');
-
-      if (formElement) {
-        // Capture form field values using FormData
-        const formData = new FormData(formElement); // Convert FormData to JSON format
-
-        const formDataJSON = {};
-        formData.forEach((value, key) => {
-          formDataJSON[key] = value;
-        });
-        console.log('Form data:', formDataJSON); // Call your API using the captured API endpoint
-        // Perform any other actions here
-        // For example, using fetch:
-
-        try {
-          const response = yield fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
-            method: 'POST',
-            body: JSON.stringify(formDataJSON),
-            headers: {
-              'Content-Type': 'application/json'
+function test(component) {
+        this.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default form submission
+            // Access the form element within the component
+            const formElement = this.closest('form');
+            if (formElement) {
+                // Capture form field values using FormData
+                const formData = new FormData(formElement);
+                // Convert FormData to JSON format
+                const formDataJSON = {};
+                formData.forEach((value, key) => {
+                    formDataJSON[key] = value;
+                });
+                console.log('Form data:', formDataJSON);
+                // Call your API using the captured API endpoint
+                // Perform any other actions here using promises
+                // For example:
+                fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
+                    method: 'POST',
+                    body: JSON.stringify(formDataJSON),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                    .then(responseData => {
+                    console.log('API response:', responseData);
+                })
+                    .catch(error => {
+                    console.error('API error:', error);
+                });
             }
-          });
-          const responseData = yield response.json();
-          console.log('API response:', responseData);
-        } catch (error) {
-          console.error('API error:', error);
-        }
-      }
-    });
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }());
+        });
 }.bind(items[i]))();
           }</script>
  </body>
