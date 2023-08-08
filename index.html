@@ -79,7 +79,7 @@
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
     <div class="col">
      <form id="ipdqw">
-      <div class="mb-3" id="ijgg">
+      <div id="ijgg" class="mb-3">
        <label for="exampleInputEmail1" id="ishai" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
        <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
@@ -90,53 +90,60 @@
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" class="btn btn-primary" id="inh57">Submit</button>
+      </div><button type="submit" id="inh57" class="btn btn-primary">Submit</button>
      </form>
     </div>
    </div>
   </div>
-  <script>var items = document.querySelectorAll('#ipdqw');
-          for (var i = 0, len = items.length; i < len; i++) {
-            (function(){
-function test(component) {
+  <script>var props = {"ipdqw":{"name":"","target":"_self","method":"post","action":""}};
+          var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
+          var els = document.querySelectorAll(ids);
+          for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function (props) {
         this.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent the default form submission
+            // const myLibOpts = {
+            //     prop1: props.myprop1,
+            //     prop2: props.myprop2,
+            // };
+            console.log('props', props);
             // Access the form element within the component
-            const formElement = this.closest('form');
-            if (formElement) {
-                // Capture form field values using FormData
-                const formData = new FormData(formElement);
-                // Convert FormData to JSON format
-                const formDataJSON = {};
-                formData.forEach((value, key) => {
-                    formDataJSON[key] = value;
-                });
-                console.log('Form data:', formDataJSON);
-                // Call your API using the captured API endpoint
-                // Perform any other actions here using promises
-                // For example:
-                fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
-                    method: 'POST',
-                    body: JSON.stringify(formDataJSON),
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                    .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                    .then(responseData => {
-                    console.log('API response:', responseData);
-                })
-                    .catch(error => {
-                    console.error('API error:', error);
-                });
-            }
+            // const formElement = this.closest('form');
+            // if (formElement) {
+            //     // Capture form field values using FormData
+            //     const formData = new FormData(formElement);
+            //     // Convert FormData to JSON format
+            //     const formDataJSON = {};
+            //     formData.forEach((value, key) => {
+            //         formDataJSON[key] = value;
+            //     });
+            //     console.log('Form data:', formDataJSON);
+            //     // Call your API using the captured API endpoint
+            //     // Perform any other actions here using promises
+            //     // For example:
+            //     fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
+            //         method: 'POST',
+            //         body: JSON.stringify(formDataJSON),
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //     })
+            //         .then(response => {
+            //             if (!response.ok) {
+            //                 throw new Error('Network response was not ok');
+            //             }
+            //             return response.json();
+            //         })
+            //         .then(responseData => {
+            //             console.log('API response:', responseData);
+            //         })
+            //         .catch(error => {
+            //             console.error('API error:', error);
+            //         });
+            // }
         });
-}.bind(items[i]))();
+    }.bind(el))(props[el.id]);
           }</script>
  </body>
 </html>
