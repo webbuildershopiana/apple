@@ -97,10 +97,25 @@
   </div>
   <div class="container">
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
-    <div class="col"></div>
+    <div class="col">
+     <form id="ij4wj">
+      <div class="mb-3">
+       <label for="firstname" id="i2qob" class="form-label">First name</label><input type="text" id="exampleInputEmail1-2" aria-describedby="emailHelp" name="firstname" class="form-control">
+       <div id="emailHelp-2" class="form-text">
+        We'll never share your email with anyone else.
+       </div>
+      </div>
+      <div class="mb-3">
+       <label for="lastname" id="i7bjv" class="form-label">Password</label><input type="text" id="exampleInputPassword1-2" name="lastname" class="form-control">
+      </div>
+      <div class="mb-3 form-check">
+       <input type="checkbox" id="exampleCheck1-2" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
+      </div><button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+    </div>
    </div>
   </div>
-  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple"}};
+  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple"},"ij4wj":{"name":"infoForm","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple"}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
@@ -108,25 +123,13 @@
             (function ({ name, target, method, url }) {
         // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
         if (name && url && method) {
-            console.log('this', this);
             const form = this;
-            // if (form) {
             this.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevent the default form submission
-                console.log('Form submitted');
                 // Create a new FormData object
                 const formData = new FormData(form);
                 formData.append('emailEnabled', false);
                 formData.append('formName', name);
-                // Create an object to hold the form data
-                // const formDataObject = {
-                //     emailEnabled: false,
-                //     formName: name,
-                // };
-                // // Iterate through the FormData entries and populate the formDataObject
-                // for (const [name, value] of formData.entries()) {
-                //     formDataObject[name] = value;
-                // }
                 // Perform an API call using fetch and Promises
                 fetch(url, {
                     method: 'POST',
@@ -153,7 +156,7 @@
                     console.error('Error during API call:', error);
                 });
                 // Output form data object to the console
-                console.log('Form data:', formData);
+                // console.log('Form data:', formData);
                 // Your custom script logic here
             });
             // }
