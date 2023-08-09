@@ -95,7 +95,7 @@
     </div>
    </div>
   </div>
-  <script>var props = {"isqu4":{"name":"registrationform","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple","emailenable":true}};
+  <script>var props = {"isqu4":{"name":"registrationform","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple","emailenable":true}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
@@ -112,7 +112,7 @@
                 formData.append('formName', name);
                 // Perform an API call using fetch and Promises
                 fetch(url, {
-                    method: 'POST',
+                    method: method,
                     // headers: {
                     //     'Content-Type': 'application/json',
                     // },
