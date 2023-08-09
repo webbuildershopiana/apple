@@ -125,15 +125,15 @@
                 // Perform an API call using fetch and Promises
                 fetch(url, {
                     method: 'POST',
-                    // headers: {
-                    //     'Content-Type': 'application/json',
-                    // },
-                    body: `${{
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
                         emailEnabled: false,
                         formName: name,
-                        data: JSON.stringify(formDataObject),
+                        data: formDataObject,
                         websiteId: 750
-                    }}`,
+                    }),
                 })
                     .then(response => {
                     if (response.ok) {
