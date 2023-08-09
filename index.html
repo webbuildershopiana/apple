@@ -95,7 +95,7 @@
     </div>
    </div>
   </div>
-  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"http://65.21.199.181:8081/api/v1/wbWebsite/form/formData"}};
+  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"https://65.21.199.181:8081/api/v1/wbWebsite/form/formData"}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
@@ -123,9 +123,9 @@
                 // Perform an API call using fetch and Promises
                 fetch(url, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    // headers: {
+                    //     'Content-Type': 'application/json',
+                    // },
                     body: JSON.stringify(formDataObject),
                 })
                     .then(response => {
