@@ -95,7 +95,7 @@
     </div>
    </div>
   </div>
-  <script>var props = {"i1and":{"name":"test","target":"_self","method":"post","url":"http.shopiana.in"}};
+  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"http://65.21.199.181:8081/api/v1/wbWebsite/form/formData"}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
@@ -106,7 +106,7 @@
             console.log('this', this);
             const form = this;
             // if (form) {
-            this.addEventListener('click', (e) => {
+            this.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevent the default form submission
                 console.log('Form submitted');
                 // Create a new FormData object
