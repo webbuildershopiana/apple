@@ -116,22 +116,24 @@
                 console.log('Form submitted');
                 // Create a new FormData object
                 const formData = new FormData(form);
+                formData.append('emailEnabled', false);
+                formData.append('formName', name);
                 // Create an object to hold the form data
-                const formDataObject = {
-                    emailEnabled: false,
-                    formName: name,
-                };
-                // Iterate through the FormData entries and populate the formDataObject
-                for (const [name, value] of formData.entries()) {
-                    formDataObject[name] = value;
-                }
+                // const formDataObject = {
+                //     emailEnabled: false,
+                //     formName: name,
+                // };
+                // // Iterate through the FormData entries and populate the formDataObject
+                // for (const [name, value] of formData.entries()) {
+                //     formDataObject[name] = value;
+                // }
                 // Perform an API call using fetch and Promises
                 fetch(url, {
                     method: 'POST',
                     // headers: {
                     //     'Content-Type': 'application/json',
                     // },
-                    body: JSON.stringify(formDataObject),
+                    body: formData,
                 })
                     .then(response => {
                     if (response.ok) {
@@ -151,7 +153,7 @@
                     console.error('Error during API call:', error);
                 });
                 // Output form data object to the console
-                console.log('Form data:', formDataObject);
+                console.log('Form data:', formData);
                 // Your custom script logic here
             });
             // }
