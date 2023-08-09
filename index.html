@@ -80,30 +80,31 @@
     <div class="col">
      <form id="i2zzs">
       <div class="mb-3">
-       <label for="exampleInputEmail1" class="form-label" id="i0kml">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
+       <label for="exampleInputEmail1" id="i0kml" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
        <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
        </div>
       </div>
-      <div class="mb-3">
-       <label for="exampleInputPassword1" class="form-label" id="iq612">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
+      <div class="mb-3" id="isiqo">
+       <label for="exampleInputPassword1" id="iq612" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" class="btn btn-primary" id="iypvn">Submit</button>
+      </div><button type="submit" id="iypvn" class="btn btn-primary">Submit</button>
      </form>
     </div>
    </div>
   </div>
-  <script>var props = {"i2zzs":{"name":"","target":"_self","method":"post","url":""}};
+  <script>var props = {"i2zzs":{"name":"sfdsfd","target":"_self","method":"post","url":"dsfdfsdfsdf.in"}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
             (function (props) {
-        const submitButton = this.querySelector('[type=submit]'); // Find the submit button
-        if (submitButton) {
-            submitButton.addEventListener('click', (e) => {
+        // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
+        const form = this;
+        if (form) {
+            form.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevent the default form submission
                 console.log('event call on submit');
                 console.log('props', props);
