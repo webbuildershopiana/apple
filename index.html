@@ -78,66 +78,41 @@
   <div class="container">
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
     <div class="col">
-     <form id="ipdqw">
-      <div id="ijgg" class="mb-3">
-       <label for="exampleInputEmail1" id="ishai" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
+     <form id="i2zzs">
+      <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label" id="i0kml">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
        <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
        </div>
       </div>
-      <div class="mb-3" id="iok27">
-       <label for="exampleInputPassword1" id="iphgd" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
+      <div class="mb-3">
+       <label for="exampleInputPassword1" class="form-label" id="iq612">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" id="inh57" class="btn btn-primary">Submit</button>
+      </div><button type="submit" class="btn btn-primary" id="iypvn">Submit</button>
      </form>
     </div>
    </div>
   </div>
-  <script>var props = {"ipdqw":{"name":"sdfsd","target":"_self","method":"post","url":"dsfds.in"}};
+  <script>var props = {"i2zzs":{"name":"","target":"_self","method":"post","url":""}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
             (function (props) {
-        this.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent the default form submission
-            // Access the form element using querySelector
-            //   const formElement = document.querySelector(formSelector);
-            //   if (formElement) {
-            //     // Capture form field values using FormData
-            //     const formDataObject = new FormData(formElement);
-            //     // Convert FormData to JSON format
-            //     const formDataJSON = {};
-            //     formDataObject.forEach((value, key) => {
-            //         formDataJSON[key] = value;
-            //     });
-            //     // Access and use the form data and props in your script
-            //     console.log('Form data:', formDataJSON);
-            //     console.log('Props:', props);
-            //     // Call your API using the captured API endpoint
-            //     // fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
-            //     //     method: 'POST',
-            //     //     body: JSON.stringify(formDataJSON),
-            //     //     headers: {
-            //     //         'Content-Type': 'application/json',
-            //     //     },
-            //     // })
-            //     // .then(response => {
-            //     //     if (!response.ok) {
-            //     //         throw new Error('Network response was not ok');
-            //     //     }
-            //     //     return response.json();
-            //     // })
-            //     // .then(responseData => {
-            //     //     console.log('API response:', responseData);
-            //     // })
-            //     // .catch(error => {
-            //     //     console.error('API error:', error);
-            //     // });
-            // }
-        });
+        const submitButton = this.querySelector('[type=submit]'); // Find the submit button
+        if (submitButton) {
+            submitButton.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent the default form submission
+                console.log('event call on submit');
+                console.log('props', props);
+                const formData = new FormData(this); // Gather form data
+                console.log('Form data:', formData);
+                console.log('props', props);
+                // Your custom script logic here
+            });
+        }
     }.bind(el))(props[el.id]);
           }</script>
  </body>
