@@ -76,51 +76,31 @@
  <head></head>
  <body id="iots">
   <div class="container">
-   <div id="is328" class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
-    <div class="col">
-     <form id="i1and">
-      <div id="ihmv9" class="mb-3">
-       <label for="exampleInputEmail1" id="isynk" class="form-label">Email</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
-       <div id="emailHelp" class="form-text">
-        We'll never share your email with anyone else.
-       </div>
-      </div>
-      <div class="mb-3">
-       <label for="exampleInputPassword1" id="idta4" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
-      </div>
-      <div class="mb-3 form-check">
-       <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" id="ix1sl" class="btn btn-primary">Submit</button>
-     </form>
-    </div>
-   </div>
-  </div>
-  <div class="container">
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
     <div class="col">
-     <form id="ij4wj">
+     <form id="igr21">
       <div class="mb-3">
-       <label for="firstname" id="i2qob" class="form-label">First name</label><input type="text" id="exampleInputEmail1-2" aria-describedby="emailHelp" name="firstname" class="form-control">
+       <label for="exampleInputEmail1" class="form-label" id="ii9n">Email address</label><input type="email" id="exampleInputEmail1-2" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
        <div id="emailHelp-2" class="form-text">
         We'll never share your email with anyone else.
        </div>
       </div>
       <div class="mb-3">
-       <label for="lastname" id="i7bjv" class="form-label">Password</label><input type="text" id="exampleInputPassword1-2" name="lastname" class="form-control">
+       <label for="exampleInputPassword1" class="form-label" id="isyzi">Password</label><input type="password" id="exampleInputPassword1-2" name="exampleInputPassword1" class="form-control">
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1-2" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" class="btn btn-primary">Submit</button>
+      </div><button type="submit" id="ieouf" class="btn btn-primary">Submit</button>
      </form>
     </div>
    </div>
   </div>
-  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple"},"ij4wj":{"name":"infoForm","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple"}};
+  <script>var props = {"igr21":{"name":"addressform","target":"_self","method":"POST","url":"http://65.21.199.181:8080/api/v1/wbWebsite/750/form/formData?store=apple","emailenable":true}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
-            (function ({ name, target, method, url }) {
+            (function ({ name, target, method, url, emailenable }) {
         // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
         if (name && url && method) {
             const form = this;
@@ -128,7 +108,7 @@
                 e.preventDefault(); // Prevent the default form submission
                 // Create a new FormData object
                 const formData = new FormData(form);
-                formData.append('emailEnabled', false);
+                formData.append('emailEnabled', emailenable);
                 formData.append('formName', name);
                 // Perform an API call using fetch and Promises
                 fetch(url, {
@@ -155,9 +135,6 @@
                     .catch(error => {
                     console.error('Error during API call:', error);
                 });
-                // Output form data object to the console
-                // console.log('Form data:', formData);
-                // Your custom script logic here
             });
             // }
         }
