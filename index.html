@@ -85,7 +85,7 @@
         We'll never share your email with anyone else.
        </div>
       </div>
-      <div class="mb-3">
+      <div class="mb-3" id="iok27">
        <label for="exampleInputPassword1" id="iphgd" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
       </div>
       <div class="mb-3 form-check">
@@ -95,52 +95,47 @@
     </div>
    </div>
   </div>
-  <script>var props = {"ipdqw":{"name":"","target":"_self","method":"post","action":""}};
+  <script>var props = {"ipdqw":{"name":"sdfsd","target":"_self","method":"post","url":"dsfds.in"}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
             (function (props) {
-        this.addEventListener('click', (e) => {
+        this.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent the default form submission
-            // const myLibOpts = {
-            //     prop1: props.myprop1,
-            //     prop2: props.myprop2,
-            // };
-            console.log('props', props);
-            // Access the form element within the component
-            // const formElement = this.closest('form');
-            // if (formElement) {
+            // Access the form element using querySelector
+            //   const formElement = document.querySelector(formSelector);
+            //   if (formElement) {
             //     // Capture form field values using FormData
-            //     const formData = new FormData(formElement);
+            //     const formDataObject = new FormData(formElement);
             //     // Convert FormData to JSON format
             //     const formDataJSON = {};
-            //     formData.forEach((value, key) => {
+            //     formDataObject.forEach((value, key) => {
             //         formDataJSON[key] = value;
             //     });
+            //     // Access and use the form data and props in your script
             //     console.log('Form data:', formDataJSON);
+            //     console.log('Props:', props);
             //     // Call your API using the captured API endpoint
-            //     // Perform any other actions here using promises
-            //     // For example:
-            //     fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
-            //         method: 'POST',
-            //         body: JSON.stringify(formDataJSON),
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //         },
-            //     })
-            //         .then(response => {
-            //             if (!response.ok) {
-            //                 throw new Error('Network response was not ok');
-            //             }
-            //             return response.json();
-            //         })
-            //         .then(responseData => {
-            //             console.log('API response:', responseData);
-            //         })
-            //         .catch(error => {
-            //             console.error('API error:', error);
-            //         });
+            //     // fetch('http://65.21.199.181:8081/api/v1/wbWebsite/form/formData', {
+            //     //     method: 'POST',
+            //     //     body: JSON.stringify(formDataJSON),
+            //     //     headers: {
+            //     //         'Content-Type': 'application/json',
+            //     //     },
+            //     // })
+            //     // .then(response => {
+            //     //     if (!response.ok) {
+            //     //         throw new Error('Network response was not ok');
+            //     //     }
+            //     //     return response.json();
+            //     // })
+            //     // .then(responseData => {
+            //     //     console.log('API response:', responseData);
+            //     // })
+            //     // .catch(error => {
+            //     //     console.error('API error:', error);
+            //     // });
             // }
         });
     }.bind(el))(props[el.id]);
