@@ -95,14 +95,14 @@
     </div>
    </div>
   </div>
-  <script>var props = {"iuy01":{"name":"registrationForm","target":"_self","method":"post","url":"","emailenable":false}};
+  <script>var props = {"iuy01":{"name":"registrationForm","method":"POST","emailenable":true}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
             (function ({ name, target, method, url, emailenable }) {
         // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
-        if (name && url && method) {
+        if (name) {
             const form = this;
             this.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevent the default form submission
