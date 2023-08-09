@@ -100,7 +100,7 @@
     <div class="col"></div>
    </div>
   </div>
-  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"http://65.21.199.181:8080/api/v1/wbWebsite/form"}};
+  <script>var props = {"i1and":{"name":"test","target":"_self","method":"POST","url":"https://stg.shopiana.in/api/v1/wbWebsite/750/form/formData"}};
           var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
@@ -117,7 +117,10 @@
                 // Create a new FormData object
                 const formData = new FormData(form);
                 // Create an object to hold the form data
-                const formDataObject = {};
+                const formDataObject = {
+                    emailEnabled: false,
+                    formName: name,
+                };
                 // Iterate through the FormData entries and populate the formDataObject
                 for (const [name, value] of formData.entries()) {
                     formDataObject[name] = value;
@@ -125,15 +128,10 @@
                 // Perform an API call using fetch and Promises
                 fetch(url, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        emailEnabled: false,
-                        formName: name,
-                        data: formDataObject,
-                        websiteId: 750
-                    }),
+                    // headers: {
+                    //     'Content-Type': 'application/json',
+                    // },
+                    body: JSON.stringify(formDataObject),
                 })
                     .then(response => {
                     if (response.ok) {
