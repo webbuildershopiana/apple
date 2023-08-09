@@ -76,21 +76,21 @@
  <head></head>
  <body id="iots">
   <div class="container">
-   <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1" id="is328">
+   <div id="is328" class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
     <div class="col">
      <form id="i1and">
-      <div class="mb-3" id="ihmv9">
-       <label for="exampleInputEmail1" class="form-label" id="isynk">Email</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
+      <div id="ihmv9" class="mb-3">
+       <label for="exampleInputEmail1" id="isynk" class="form-label">Email</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" class="form-control">
        <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
        </div>
       </div>
       <div class="mb-3">
-       <label for="exampleInputPassword1" class="form-label" id="idta4">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
+       <label for="exampleInputPassword1" id="idta4" class="form-label">Password</label><input type="password" id="exampleInputPassword1" name="exampleInputPassword1" class="form-control">
       </div>
       <div class="mb-3 form-check">
        <input type="checkbox" id="exampleCheck1" class="form-check-input"><label for="exampleCheck1" class="form-check-label">Check me out</label>
-      </div><button type="submit" class="btn btn-primary" id="ix1sl">Submit</button>
+      </div><button type="submit" id="ix1sl" class="btn btn-primary">Submit</button>
      </form>
     </div>
    </div>
@@ -100,19 +100,59 @@
           var els = document.querySelectorAll(ids);
           for (var i = 0, len = els.length; i < len; i++) {
             var el = els[i];
-            (function (props) {
+            (function ({ name, target, method, url }) {
         // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
-        const form = this;
-        if (form) {
-            form.addEventListener('submit', (e) => {
+        if (name && url && method) {
+            console.log('this', this);
+            const form = this;
+            // if (form) {
+            this.addEventListener('click', (e) => {
                 e.preventDefault(); // Prevent the default form submission
-                console.log('event call on submit');
-                console.log('props', props);
-                const formData = new FormData(form); // Gather form data
-                console.log('Form data:', formData);
-                console.log('props', props);
+                console.log('Form submitted');
+                // Create a new FormData object
+                const formData = new FormData(form);
+                // Create an object to hold the form data
+                const formDataObject = {
+                    emailEnabled: false,
+                    formName: name
+                };
+                // Iterate through the FormData entries and populate the formDataObject
+                for (const [name, value] of formData.entries()) {
+                    formDataObject[name] = value;
+                }
+                // Perform an API call using fetch and Promises
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formDataObject),
+                })
+                    .then(response => {
+                    if (response.ok) {
+                        // API call successful
+                        return response.json();
+                    }
+                    else {
+                        // API call failed
+                        throw new Error('API call failed');
+                    }
+                })
+                    .then(responseData => {
+                    console.log('API response:', responseData);
+                    // Your custom script logic here
+                })
+                    .catch(error => {
+                    console.error('Error during API call:', error);
+                });
+                // Output form data object to the console
+                console.log('Form data:', formDataObject);
                 // Your custom script logic here
             });
+            // }
+        }
+        else {
+            console.log('somthing went wrong');
         }
     }.bind(el))(props[el.id]);
           }</script>
