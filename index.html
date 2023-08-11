@@ -77,7 +77,7 @@
  <body id="iots">
   <div class="container">
    <div class="row p-2 row-cols-1 row-cols-sm-2 row-cols-md-1">
-    <div class="col" id="ihxk">
+    <div id="ihxk" class="col">
      <form id="isqu4">
       <div class="mb-3">
        <label for="exampleInputEmail1" id="i3pi" class="form-label">Email address</label><input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" required class="form-control">
@@ -95,54 +95,6 @@
     </div>
    </div>
   </div>
-  <script>var props = {"isqu4":{"name":"registrationform","target":"_self","method":"POST","url":"https://stgapi.shopiana.in/api/v1/wbWebsite/750/form/formData?store=apple","emailenable":true}};
-          var ids = Object.keys(props).map(function(id) { return '#'+id }).join(',');
-          var els = document.querySelectorAll(ids);
-          for (var i = 0, len = els.length; i < len; i++) {
-            var el = els[i];
-            (function ({ name, target, method, url, emailenable }) {
-        // const submitButton = this.querySelector('[type=submit]'); // Find the submit button
-        if (name) {
-            const form = this;
-            this.addEventListener('submit', (e) => {
-                e.preventDefault(); // Prevent the default form submission
-                // Create a new FormData object
-                const formData = new FormData(form);
-                formData.append('emailEnabled', emailenable);
-                formData.append('formName', name);
-                // Perform an API call using fetch and Promises
-                fetch(url, {
-                    method: method,
-                    // headers: {
-                    //     'Content-Type': 'application/json',
-                    // },
-                    body: formData,
-                })
-                    .then(response => {
-                    if (response.ok) {
-                        // API call successful
-                        return response.json();
-                    }
-                    else {
-                        // API call failed
-                        throw new Error('API call failed');
-                    }
-                })
-                    .then(responseData => {
-                    console.log('API response:', responseData);
-                    // Your custom script logic here
-                })
-                    .catch(error => {
-                    console.error('Error during API call:', error);
-                });
-            });
-            // }
-        }
-        else {
-            console.log('somthing went wrong');
-        }
-    }.bind(el))(props[el.id]);
-          }</script>
  </body>
 </html>
 </html>
